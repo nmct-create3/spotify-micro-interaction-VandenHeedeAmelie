@@ -7,6 +7,8 @@
     --spotify-white: #ffffff;
     --spotify-grey: #b3b3b3;
     --spotify-darkGrey: #222222;
+
+    --ease-in-out-2: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 /* reset */
@@ -27,11 +29,24 @@ svg {
 
 /* global page styles */
 
-html {}
+html {
+    font-family: 'Manrope', sans-serif;
+}
 
 /* center everything */
 
-body {}
+body {
+    background-color: var(--spotify-black);
+    color: var(--spotify-white);
+    display: grid;
+    place-items: center;
+    /* grid-template-columns: 1fr 25rem 1fr;
+    grid-template-rows: 1fr 25rem 1fr; */
+}
+
+p{
+    font-weight: 100;
+}
 
 /*
     Object: Button reset
@@ -69,6 +84,74 @@ body {}
 /*
     Album
 */
+.album{
+    background-color: var(--spotify-darkGrey);
+    max-width: 25rem;
+    border-radius: 1rem;
+    display: grid;
+}
+
+.album__img{
+    padding: 1.5rem;
+    border-radius: 2rem;
+}
+
+.album__header{
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2rem;
+}
+
+.album__title{
+    font-weight: 700;
+}
+
+.album__artist{
+    font-weight: 100;
+    grid-row: 2/3;
+    color: var(--spotify-grey);
+}
+
+.album__action{
+    grid-column: 2/3;
+    grid-row: span 2;
+}
+
+
+.icon--check{
+    fill: var(--spotify-green);
+    display: none;
+}
+
+/* .toggle--checked .icon--check{
+    display: block;
+}
+
+.toggle--checked .icon--add{
+    display: none;
+} */
+
+
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .toggle--checked .icon--check {
+    display: block;
+    animation: fade-in .3s var(--ease-in-out-2);
+  }
+  
+  .toggle--checked .icon--add {
+    display: none;
+    animation: fade-in .3s var(--ease-in-out-2);
+  }
+
 
 /*
     Utitlities
